@@ -1,11 +1,12 @@
-const express = require("express");
+const express = require("express"); //Trae el framework Express (podés usar las funciones de Express en este archivo)
 const db = require("./BaseDatos"); 
 
 const router = express.Router();
 
 // PROCESAR LOGIN CON CONTROL DE ROL 
-
-router.post("/login", (req, res) => {
+//req (Request): Es un objeto lleno de información que viene desde el navegador del usuario. Contiene cosas como qué datos escribieron en el formulario 
+//res (Response): Es un objeto con métodos que usás vos para responderle al navegador. Tiene funciones como res.status() (para decir si salió todo bien o mal) o res.json() (para mandarle datos de vuelta al usuario).
+router.post("/login", (req, res) => { 
     const { usuario, contrasena } = req.body;
 
     if (!usuario || !contrasena) {
