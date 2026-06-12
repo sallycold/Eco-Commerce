@@ -7,9 +7,10 @@ async function login() {
     mensajeP.innerText = ""; 
 
     try {
-        const res = await fetch("/login", {
+        const res = await fetch("/login", {//Prepara el envío (fetch) y se oo envia al login usando el método POST.
+            
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json" } //Le avisa al servidor que le está mandando datos en formato JSON
             body: JSON.stringify({ usuario, contrasena })
         });
 
