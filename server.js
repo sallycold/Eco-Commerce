@@ -32,11 +32,11 @@ app.get("/ventas", (req, res) => {
 app.get("/olvide-contrasena", (req, res) => {
     res.sendFile(path.join(__dirname, "Programas", "olvide-contrasena.html"));
 });
-
+//res.sendFile: Se encarga de responder a la petición del navegador enviándole el archivo HTML correspondiente para que lo renderice.
 app.get("/abm_productos", (req, res) => {
     res.sendFile(path.join(__dirname, "Programas", "abm_productos.html"));
 });
-
+//__dirname: Es una variable global de Node.js que contiene la ruta absoluta del directorio donde se encuentra este archivo server.js.
 app.get("/registro", (req, res) => {
     res.sendFile(path.join(__dirname, "Programas", "registro.html"));
 });
