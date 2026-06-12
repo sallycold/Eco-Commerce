@@ -1,3 +1,4 @@
+//----Backend ----
 const express = require("express"); //Trae el framework Express (podés usar las funciones de Express en este archivo)
 const db = require("./BaseDatos"); 
 const router = express.Router();//permite crear este router para agrupar rutas que tengan sentido juntas (como todo lo relacionado a Login y Usuarios).
