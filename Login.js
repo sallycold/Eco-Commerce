@@ -144,13 +144,11 @@ router.post("/actualizar-password", (req, res) => {
 });
 
 
-// =========================================================
 // NUEVA RUTA: DESCONTAR STOCK DESPUÉS DE LA COMPRA
-// =========================================================
 router.post("/descontar-stock", (req, res) => {
     const { productos } = req.body; // Aquí llega nuestro array 'carrito' enviado desde el frontend
 
-    // 1. Validación básica de seguridad
+    //  Validación básica de seguridad
     if (!productos || productos.length === 0) {
         return res.status(400).json({ mensaje: "El carrito está vacío o no se enviaron productos." });
     }
@@ -158,7 +156,7 @@ router.post("/descontar-stock", (req, res) => {
     let productosProcesados = 0;
     let huboError = false;
 
-    // 2. Recorremos cada producto del carrito para actualizar la base de datos
+    // Recorremos cada producto del carrito para actualizar la base de datos
     productos.forEach((item) => {
         
         // Ejecutamos el UPDATE con marcadores '?' tal cual como usás en tus otras rutas
@@ -187,9 +185,7 @@ router.post("/descontar-stock", (req, res) => {
 });
 
 
-// =========================================================
-// 1. OBTENER TODOS LOS PRODUCTOS (Para cargar la tabla)
-// =========================================================
+//  OBTENER TODOS LOS PRODUCTOS (Para cargar la tabla)
 router.get("/productos", (req, res) => {
     db.query("SELECT * FROM productos ORDER BY id DESC", (err, results) => {
         if (err) {
@@ -200,9 +196,7 @@ router.get("/productos", (req, res) => {
     });
 });
 
-// =========================================================
-// 2. CREAR UN NUEVO PRODUCTO (Alta)
-// =========================================================
+// CREAR UN NUEVO PRODUCTO (Alta)
 router.post("/productos", (req, res) => {
     const { nombre, precio, imagen, stock } = req.body;
 
@@ -223,9 +217,7 @@ router.post("/productos", (req, res) => {
     );
 });
 
-// =========================================================
-// 3. MODIFICAR UN PRODUCTO EXISTENTE (Cambios / Edición)
-// =========================================================
+//  MODIFICAR UN PRODUCTO EXISTENTE (Cambios / Edición)
 router.put("/productos/:id", (req, res) => {
     const { id } = req.params;
     const { nombre, precio, imagen, stock } = req.body;
@@ -243,9 +235,7 @@ router.put("/productos/:id", (req, res) => {
     );
 });
 
-// =========================================================
-// 4. ELIMINAR UN PRODUCTO (Baja)
-// =========================================================
+// ELIMINAR UN PRODUCTO (Baja)
 router.delete("/productos/:id", (req, res) => {
     const { id } = req.params;
 
@@ -260,4 +250,4 @@ router.delete("/productos/:id", (req, res) => {
 
 
 
-module.exports = router;
+module.exports = router;// conecta con el servidor 
