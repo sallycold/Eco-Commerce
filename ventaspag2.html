@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="estilos/estilos3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="Kios_login.html" class="btn-salir">Salir</a></li>
+        </ul>
+    </nav>
+
+    
+<div id="inicio" class="main-layout">
+ <div class="container">
+
+           <div id="productos" class="contenedor-padre">
+
+    <div class="caja" data-id="1">
+        <img src="https://imgs.search.brave.com/vnQPuqX6XhyRNJUDholfSeeRvnwhytw9mXa4ii-NbRE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2Q1L2Iz/LzYwL2Q1YjM2MDFk/MTNhNTUxOWI5OGJi/NmQ4ZmMwYTg3MDE5/LmpwZw" alt="Alfajor">
+        <h3>Alfajor</h3>
+        <p class="precio">$250</p>
+        <div class="contador">
+            <button onclick="restar(this)">-</button>
+            <span class="cantidad">0</span>
+            <button onclick="sumar(this)">+</button>
+        </div>
+        <button class="btn-agregar" onclick="agregarCarrito(this)">Agregar</button>
+    </div>
+
+    <div class="caja" data-id="2">
+        <img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=600" alt="Gomitas">
+        <h3>Gomitas Mogul</h3>
+        <p class="precio">$250</p>
+        <div class="contador">
+            <button onclick="restar(this)">-</button>
+            <span class="cantidad">0</span>
+            <button onclick="sumar(this)">+</button>
+        </div>
+        <button class="btn-agregar" onclick="agregarCarrito(this)">Agregar</button>
+    </div>
+    
+    <div class="caja" data-id="3">
+        <img src="https://imgs.search.brave.com/qeFkS4dYpnkJoN8-_btJetqDp2PmF3dXZaxv-Qhvy8Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI2/NTIzNzExMC9waG90/by9mZXJyZXJvLXJv/Y2hlci1jaG9jb2xh/dGUuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPW4zZVBEU19L/dXJHRFREZl9EYmN2/YVVGSmRadXV2ajZa/NU0wT1VfcUU3Wnc9" alt="Ferrero">
+        <h3>Ferrero Rocher</h3>
+        <p class="precio">$250</p>
+        <div class="contador">
+            <button onclick="restar(this)">-</button>
+            <span class="cantidad">0</span>
+            <button onclick="sumar(this)">+</button>
+        </div>
+        <button class="btn-agregar" onclick="agregarCarrito(this)">Agregar</button>
+    </div>
+
+    <div class="caja" data-id="4">
+       <img src="https://veganvvocals.com/wp-content/uploads/2021/07/Vegan-Passion-Fruit-Mango-Ice-Cream-6-scaled.jpg" alt="Postre">
+        <h3>Postre de helado Maracuya</h3>
+        <p class="precio">$250</p>
+        <div class="contador">
+            <button onclick="restar(this)">-</button>
+            <span class="cantidad">0</span>
+            <button onclick="sumar(this)">+</button>
+        </div>
+        <button class="btn-agregar" onclick="agregarCarrito(this)">Agregar</button>
+    </div>
+
+    <div class="caja" data-id="5">
+        <img src="https://www.appsuper.com.ar/wp-content/uploads/2020/05/Papas-Lays-clasicas-250-gr-600x629.jpg" alt="Papas">
+        <h3>Papas Lays</h3>
+        <p class="precio">$250</p>
+        <div class="contador">
+            <button onclick="restar(this)">-</button>
+            <span class="cantidad">0</span>
+            <button onclick="sumar(this)">+</button>
+        </div>
+        <button class="btn-agregar" onclick="agregarCarrito(this)">Agregar</button>
+    </div>
+
+ </div>
+ </div>
+
+
+        <div class="carrito-container">
+            <h2>Resumen de Compra</h2>
+            <ul id="lista-carrito"></ul>
+            <p class="total-precio">Total: $<span id="total">0</span></p>
+            <button class="btn-factura" onclick="generarPDF()">Generar Factura PDF</button>
+        </div>
+
+           </div>
+
+
+
+    <footer id="contacto">
+        <div class="abajo">
+            <p>Kioscoeco_merce@gmail.com</p>
+            <p> telefono: 57875899</p>
+        </div>
+    </footer>
+
+    <script src="JavaScr/calculos.js"></script>
+</body>
+</html>
