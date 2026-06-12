@@ -1,7 +1,6 @@
 const express = require("express"); //Trae el framework Express (podés usar las funciones de Express en este archivo)
 const db = require("./BaseDatos"); 
-
-const router = express.Router();
+const router = express.Router();//permite crear este router para agrupar rutas que tengan sentido juntas (como todo lo relacionado a Login y Usuarios).
 
 // PROCESAR LOGIN CON CONTROL DE ROL 
 //req (Request): Es un objeto lleno de información que viene desde el navegador del usuario. Contiene cosas como qué datos escribieron en el formulario 
