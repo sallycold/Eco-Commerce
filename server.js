@@ -1,11 +1,12 @@
-const express = require("express");
-const path = require("path");
-const cors = require("cors");
-const loginRoutes = require("./Login");
+const express = require("express");// Framework para crear el servidor HTTP y gestionar rutas
+const path = require("path");// Módulo nativo de Node.js para manejar y normalizar rutas de archivos
+const cors = require("cors"); // Middleware para permitir solicitudes de recursos desde otros dominios (CORS)
+const loginRoutes = require("./Login");// Importa las rutas de autenticación definidas en el archivo Login.js
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const app = express();//Inicialización de la aplicación
+app.use(cors());// Habilita CORS para evitar problemas de seguridad al conectar con el frontend
+app.use(express.json());// Permite que el servidor entienda y procese datos en formato JSON que vengan en el cuerpo (body) de las peticiones
+
 
 // Servir la carpeta de programas
 app.use(express.static(path.join(__dirname, "Programas")));
@@ -39,7 +40,8 @@ app.get("/abm_productos", (req, res) => {
 app.get("/registro", (req, res) => {
     res.sendFile(path.join(__dirname, "Programas", "registro.html"));
 });
-
+// Inicialización del servidor
+// Hace que la aplicación escuche las peticiones en el puerto 3000
 app.listen(3000, () => {
     console.log("Servidor en http://localhost:3000");
 });
