@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Productos - Kiosco</title>
+     <link rel="stylesheet" href="estilos/estilos4.css">
+</head>
+<body>
+
+    <h1>🛒 ABM de Productos</h1>
+    <div class="nav-links">
+        <a href="/">← Volver al Login</a>
+        <a href="/ventas">Ver Tienda</a>
+        <a href="/abm_productos.html"> ← Volver al abm_productos</a>
+    </div>
+
+
+
+     <div class="form-card form-usuario-card">
+        <h2 id="titulo-form-usu">👤 Asignar Rol de Administrador</h2>
+
+        <input type="hidden" id="usu-id">
+
+        <div class="form-group">
+            <label>Nombre del usuario *</label>
+            <input type="text" id="usu-nombre" placeholder="Ej: catalina">
+        </div>
+
+        <div class="form-group">
+            <label>Correo electrónico *</label>
+            <input type="email" id="usu-email" placeholder="Ej: correo@kiosco.com">
+        </div>
+
+        <div class="form-group">
+            <label>Rol asignado *</label>
+            <select id="usu-rol">
+                <option value="">Seleccione un rol</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Cliente"> </option>
+            </select>
+        </div>
+       
+        <div class="btn-row">
+            <button class="btn btn-guardar" onclick="guardarUsuario()">💾 Guardar Usuario</button>
+            <button class="btn btn-cancelar" id="btn-cancelar-usu" onclick="cancelarEdicionUsuario()" style="display:none">✕ Cancelar</button>
+        </div>
+        <p id="msg-form-usu"></p> 
+        
+        <br><br>
+        
+        <div class="tabla-card">
+            <h2>👥 Usuarios Registrados</h2>
+            <div class="search-row">
+                <input type="text" id="buscador-usu" placeholder="🔍 Buscar usuario..." oninput="filtrarTablaUsuarios()">
+            </div>
+            <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Avatar</th> <th>Usuario</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody id="tabla-body-usuarios"> 
+        <tr><td colspan="6">Cargando usuarios...</td></tr>
+    </tbody>
+</table>
+        </div>
+    </div>
+    
+    </div>
+<script src="JavaScr/logica_abmUsauario.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Mundo - Kiosco</title>
+    <link rel="stylesheet" href="estilos/estilos3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <nav class="menu">
+         <div id="userBox"
+     style="
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: beige;
+        padding:8px;
+        border-radius: 50px;
+     ">
+</div>
+        <a class="menu-logo">
+            <img src="img/logo.png" alt="Logo Kiosco"> 
+            <h1>Mini Mundo</h1>
+        </a>
+       
+        <div class="centrarmenu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                
+                <li class="item-combobox">
+                    <select id="select-categoria" onchange="filtrarPorCategoria(this.value)">
+                        <option value="todos">Categorías</option>
+                        <option value="snack">Snacks</option>
+                        <option value="postres">Postres</option>
+                        <option value="dulces">Golosinas</option>
+                        <option value="bebidas">Bebidas</option>
+                    </select>
+                </li>
+
+                <li><a href="#contacto">Contacto</a></li>
+               <li><a href="#" class="btn-salir" onclick="logout()">Salir</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br><br><br><br><br>
+    <div id="inicio" class="main-layout">
+        <div class="container">
+            <div id="productos" class="contenedor-padre">
+
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-flotante" onclick="abrirFactura()">🛒 Ver Cuenta</button>
+
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarFactura()">&times;</span>
+            <h2>Resumen de Compra</h2>
+            <ul id="lista-carrito"></ul>
+            <p class="total-precio">Total a pagar: $<span id="total">0</span></p>
+            <button class="btn-factura" onclick="generarPDF()">Generar Factura PDF</button>
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <div class="abajo">
+            <p>Kioscoeco_minimundo@gmail.com</p>
+            <p>Teléfono: 57875899</p>
+        </div>
+    </footer>
+
+    <script src="JavaScr/calculos.js"></script>
+</body>
+</html>
