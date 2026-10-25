@@ -12,6 +12,6 @@ El proyecto fue desarrollado utilizando JavaScript, Node.js, HTML y CSS.
 Para iniciar la pagina escribi esto en la terminal:
 
 
-cd Kiosco22\Kiosco22
+cd Kiosco22
 
 node server.js
