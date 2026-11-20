@@ -1,0 +1,422 @@
+body {
+    background: linear-gradient(90deg, #d293e6 0%, #671596 100%);
+    margin: 0; 
+    min-height: 100vh; 
+}
+.container {
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
+
+
+.contenedor-padre {
+    display: flex;          
+    flex-direction: row;      
+    flex-wrap: wrap;         
+    gap: 20px;                
+    padding: 20px;
+    justify-content: center; 
+}
+
+.caja {
+
+    justify-content: space-between; /* Separa los elementos dejando el botón abajo */
+    align-items: center;      /* Centra todo el contenido horizontalmente */
+     background: #16213E;
+    padding: 20px;
+    border: 1px solid #0F3460;
+    width: 300px;            
+    height: 380px;            
+    border-radius: 20px;
+    color:white;
+    box-sizing: border-box; /* Hace que el padding no estire la caja hacia afuera */
+    overflow: hidden;       /* Si algo intenta salirse, lo corta o lo oculta */
+    display: flex;          /* Usamos flexbox para ordenar el contenido verticalmente */
+    flex-direction: column; 
+    align-items: center;
+    margin-top:5%;
+}
+
+.caja img {
+   width: 90%;      
+    height: 150px;        /* Le clavamos un alto fijo para que todas las cajas midan igual */
+      /* Mantiene la proporción de la foto sin deformarla ni estirarla */
+    display: block;        /* Elimina espacios fantasmas abajo de la imagen */
+    
+}
+
+
+.contador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contador button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cantidad {
+    font-weight: bold;
+}
+
+.btn-agregar {
+    background: linear-gradient(90deg, #FF006E 0%, #FF4E50 100%);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;             
+}
+
+.abajo{
+     background: #16213E;
+     margin-top:50px ;
+     padding: 30px;
+     text-align: center;
+     color: #ffffff;
+}
+
+
+/* --- ESTILOS DEL MENÚ --- */
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.menu-logo img {
+    height: 48px;
+    width: 48px;
+    display: block;
+    border-radius: 50%;
+    transition: transform 0.25s ease;
+}
+
+.menu {
+    background-color: #0F0F23;
+    padding: 15px 0;
+    border-bottom: 2px solid #0F3460;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+    /* Convertimos el menú completo en un contenedor flex vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Esto asegura que TODO lo que esté adentro busque el centro */
+}
+
+.menu h1{
+    color: #f0ff1b;
+    font-size:40px;
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.menu ul li a:hover {
+    color: #FF006E;
+}
+
+.btn-salir {
+    color: #FF4E50 !important;
+}
+
+/* --- ESTILOS DEL LAYOUT PRINCIPAL --- */
+.main-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+  
+}
+
+.container {
+    flex: 2; /* Ocupa más espacio para los productos */
+}
+
+
+.btn-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #FF006E;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.btn-flotante:hover {
+    background: #d4005b;
+    transform: scale(1.05);
+}
+
+/* --- VENTANA EMERGENTE (MODAL) --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background: #1A1A2E;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #0F3460;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+    position: relative;
+}
+
+.modal-contenido h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E0E0E0;
+}
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #FF4E50;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar:hover {
+    color: white;
+}
+
+/* Limitamos la altura de la lista para que no sea infinita si compran mucho */
+#lista-carrito {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+
+/* Asegura que el combobox se alinee perfectamente con los textos del menú */
+.menu ul {
+    display: flex;
+    align-items:center; /* Alinea verticalmente todos los elementos del menú */
+    list-style:none;
+}
+
+
+
+/* Estilo para el select dentro del menú */
+.item-combobox select {
+    background-color:#0F0F23; /* O el color de fondo de tu menú */
+    color: #fafafa; /* Cambia al color de tus enlaces (ej. #fff si tu menú es oscuro) */
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    font-size: 16px;
+    font-family: inherit; /* Hereda la tipografía de tu menú */
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    margin: 0 10px; /* Separación horizontal */
+}
+
+/* Opcional: Estilo cuando pasas el mouse por encima */
+.item-combobox select:hover {
+    border-color: #ffffff;
+}
+
+
+.grupo-categoria {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.titulo-seccion {
+    color: #f0ff1b; /* El mismo amarillo brillante de tu h1 */
+    font-size: 30px;
+    text-align: left;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+}
+
+.contenedor-tarjetas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+/* Lista del resumen de compra */
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0;
+}
+
+#lista-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.95rem;
+}
+
+.item-detalle {
+    flex: 1;
+    text-align: left;
+}
+
+.controles-carrito {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cant-carrito {
+    min-width: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-resumen {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    background-color: #2d2d52;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-resumen:hover {
+    background-color: #43437a;
+}
+
+.btn-resumen:active {
+    transform: scale(0.95);
+}
+
+.btn-quitar {
+    border-color: rgba(255, 77, 109, 0.5);
+    background-color: rgba(255, 77, 109, 0.18);
+    color: #ff6b86;
+}
+
+.btn-quitar:hover {
+    background-color: #ff4d6d;
+    color: #ffffff;
+}
+
+/* Botón Generar Factura PDF */
+.btn-factura {
+    margin-top: 12px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff006e;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-factura:hover {
+    background-color: #d9005d;
+}
+
+.btn-factura:active {
+    transform: scale(0.98);
+}
+
+
+.grupo-categoria {
+    margin-bottom: 36px;
+    scroll-margin-top: 110px;
+}
+
+.grupo-categoria h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2b193d 100%);
+    color: #ffffff;
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    padding: 10px 22px;
+    margin: 0 0 20px 0;
+    border-radius: 14px;
+    border-left: 5px solid #ff006e;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Color e ícono propio para cada categoría creada desde JS */
+#seccion-golosinas h2 {
+    border-left-color: #ff006e;
+}
+#seccion-golosinas h2::before {
+    content: "🍬";
+}
+
+#seccion-bebidas h2 {
+    border-left-color: #00d4ff;
+}
+#seccion-bebidas h2::before {
+    content: "🥤";
+}
+
+#seccion-snacks h2 {
+    border-left-color: #ffb703;
+}
+#seccion-snacks h2::before {
+    content: "🍿";
+}
